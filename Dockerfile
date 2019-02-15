@@ -35,32 +35,21 @@ RUN echo Y | apt install default-jdk
 RUN echo Y | apt install maven
 RUN PREFIX=~/.okta 
 RUN cd $HOME && wget https://raw.githubusercontent.com/oktadeveloper/okta-aws-cli-assume-role/master/bin/install.sh
-RUN pwd
-RUN ls
 RUN cd $HOME && chmod +x install.sh
 RUN cd $HOME && bash install.sh -i
 #check installs
 RUN java -version
 RUN mvn -version
 
-
+#Configure Paths and add shell script to run okta-aws command
+COPY bash_profile /
+COPY getcreds.sh /
+RUN cat bash_profile >> ~/.bash_profile && cat bash_profile >> ~/.bashrc && chmod +x getcreds.sh
 
 # cleanup
 RUN apt-get -qy autoremove
 
-RUN printf '%s\n' '#OktaAWSCLI' >> ~/.bash_profile  
-RUN printf '%s\n' 'if [[ -f "$HOME/.okta/bash_functions" ]]; then' >> ~/.bash_profile
-RUN printf '%s\n' '. "$HOME/.okta/bash_functions"' >> ~/.bash_profile
-RUN printf '%s\n' 'fi' >> ~/.bash_profile
-RUN printf '%s\n' 'if [[ -d "$HOME/.okta/bin" && ":$PATH:" != *":$HOME/.okta/bin:"* ]]; then' >> ~/.bash_profile
-RUN printf '%s\n' 'PATH="$HOME/.okta/bin:$PATH"' >> ~/.bash_profile
-RUN printf '%s\n' 'fi' >> ~/.bash_profile
-RUN printf '%s\n' '#OktaAWSCLI' >> ~/.bashrc 
-RUN printf '%s\n' 'if [[ -f "$HOME/.okta/bash_functions" ]]; then' >> ~/.bashrc 
-RUN printf '%s\n' '. "$HOME/.okta/bash_functions"' >> ~/.bashrc 
-RUN printf '%s\n' 'fi' >> ~/.bashrc 
-RUN printf '%s\n' 'if [[ -d "$HOME/.okta/bin" && ":$PATH:" != *":$HOME/.okta/bin:"* ]]; then' >> ~/.bashrc 
-RUN printf '%s\n' 'PATH="$HOME/.okta/bin:$PATH"' >> ~/.bashrc 
-RUN printf '%s\n' 'fi' >> ~/.bashrc 
+
+
 
 
