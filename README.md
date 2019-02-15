@@ -6,7 +6,7 @@ AWS Cli installed
 
 
 Steps:
-create a file called config.properties and add the following information:
+create a file called config.properties and add the following information: <br />
 #OktaAWSCLI <br />
 OKTA_ORG=<add your okta organization> <br />
 OKTA_AWS_APP_URL=<add the okta aws app url for the account you are logging into> <br />
