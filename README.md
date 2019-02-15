@@ -24,6 +24,6 @@ docker build -t okta-aws .
 #Once the container image is built:
 docker run -tid -v $HOME/.aws:/root/.aws -v  ~/.okta/config.properties:/root/.okta/config.properties --name okta-aws okta-aws
 <br /><br />#Now simply run the command below to authenticate to okta <br />
-#and pass in the aws cred profile name you want to use.<br />
+#and pass in the aws cred profile name you want to use (using devops as the aws credential profile name below).<br />
 docker exec -ti okta-aws  bash  -c "./getcreds.sh devops" <br />
 #you should be prompted for your okta password and mfa if used.
