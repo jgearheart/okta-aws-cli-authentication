@@ -7,11 +7,11 @@ AWS Cli installed
 
 Steps:
 create a file called config.properties and add the following information:
-#OktaAWSCLI
-OKTA_ORG=<add your okta organization>
-OKTA_AWS_APP_URL=<add the okta aws app url for the account you are logging into>
-OKTA_USERNAME=<add your okta username>
-OKTA_BROWSER_AUTH=false
+#OktaAWSCLI <br />
+OKTA_ORG=<add your okta organization> <br />
+OKTA_AWS_APP_URL=<add the okta aws app url for the account you are logging into> <br />
+OKTA_USERNAME=<add your okta username> <br />
+OKTA_BROWSER_AUTH=false <br />
 
 #you will be mounting this file along with your .aws directory to the container in a later step.
 
