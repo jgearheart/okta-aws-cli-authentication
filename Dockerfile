@@ -63,17 +63,4 @@ RUN printf '%s\n' 'if [[ -d "$HOME/.okta/bin" && ":$PATH:" != *":$HOME/.okta/bin
 RUN printf '%s\n' 'PATH="$HOME/.okta/bin:$PATH"' >> ~/.bashrc 
 RUN printf '%s\n' 'fi' >> ~/.bashrc 
 
-# add scripts to the container
-#ADD .bashrc /root/.bashrc
-#ADD .profile /root/.profile
 
-# add the application to the container
-#ADD app /app
-
-# locales to UTF-8
-#RUN locale-gen C.UTF-8 && /usr/sbin/update-locale LANG=C.UTF-8
-#ENV LC_ALL C.UTF-8
-
-# app environment
-#ENV PYTHONIOENCODING UTF-8
-#ENV PYTHONPATH /app/
