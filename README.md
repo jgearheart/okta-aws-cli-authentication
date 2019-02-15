@@ -27,3 +27,5 @@ docker run -tid -v $HOME/.aws:/root/.aws -v  ~/.okta/config.properties:/root/.ok
 #and pass in the aws cred profile name you want to use (using devops as the aws credential profile name below).<br />
 docker exec -ti okta-aws  bash  -c "./getcreds.sh devops" <br />
 #you should be prompted for your okta password and mfa if used.
+#Once complete you should have temporary creds for the aws account you added in the OKTA_AWS_APP_URL in your ~/.aws/credentials file with a profile name of devops on your host machine <br />
+#to test simply run: aws sts get-caller-identity --profile devops
