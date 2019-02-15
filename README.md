@@ -18,8 +18,8 @@ OKTA_BROWSER_AUTH=false
 
 open terminal and run:
 
-https://github.com/jgearheart/okta-aws-cli-authentication.git
-cd okta-aws-cli-authentication
+git clone https://github.com/jgearheart/okta-aws-cli-authentication.git <br />
+cd okta-aws-cli-authentication <br />
 docker build -t okta-aws .
 #Once the container image is built:
 docker run -tid -v $HOME/.aws:/root/.aws -v  ~/.okta/config.properties:/root/.okta/config.properties --name okta-aws okta-aws
